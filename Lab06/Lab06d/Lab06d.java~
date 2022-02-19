@@ -1,0 +1,102 @@
+import java.util.Scanner;
+/*
+ * A simple program to play dice rollng game.
+ * 
+ * @author Ali Genis
+ * @date   05.04.2020
+ */
+public class Lab06d
+{
+   public static void main ( String[] args )
+   {
+      Scanner scan = new Scanner(System.in);
+      
+      // Variables
+      double money;
+      double bet;
+      int prediction;
+      int diceValue;
+      boolean roll;
+      
+      // Program code
+      roll = false;
+      diceValue = 0;
+      
+      System.out.print( "Enter your total money: " );
+      money = scan.nextDouble();
+      
+      if ( money > 0 )
+      {
+         do
+         {
+            roll = false;
+            System.out.print( "Enter prediction ( 1 for ODD, 2 for EVEN, 3 for EXTREME, 0 for EXIT ): " );
+            prediction = scan.nextInt();
+            if ( prediction == 1 || prediction == 2 || prediction == 3 )
+            {
+               System.out.print( "Enter the amount of money you want to bet: " );
+               bet = scan.nextDouble();
+               
+               if ( money >= bet )
+               {
+                  //roll = true;
+                  if ( prediction == 1 || prediction == 2 )
+                  {
+                     roll = true;
+                     diceValue = sumOfDice();
+                     if ( diceValue % 2 == 1 )
+                     {
+                        if ( prediction == 1 )
+                           money += bet / 2;
+                        else
+                           money -= bet / 4;
+                     }
+                     else
+                     {
+                        if ( prediction == 2 )
+                           money += bet / 2;
+                        else
+                           money -= bet / 4;
+                     }
+                  }
+                  else if ( prediction == 3 )
+                  {
+                     roll = true;
+                     diceValue = sumOfDice();
+                     if ( diceValue == 2 || diceValue == 12 )
+                        money += bet;
+                     else
+                        money -= bet;
+                  }
+                  
+               }
+               else
+                  System.out.println( "Your money is not enough!" );
+            }
+            if ( roll )
+               System.out.println( "The sum of the dice is " + diceValue );
+            System.out.println( "Your total money is " + money );
+            System.out.println( "************************************" );
+            roll = false;
+            
+         }while( prediction != 0 && money > 0 );
+         
+         System.out.println( "Goodbye!" );
+      }
+      else
+         System.out.println( "You don't have enough money to play. Go back to you home!!!" );
+   }
+   
+   /*
+    * method for rolling dice
+    * @return sum of two dice
+    */
+   public static int sumOfDice()
+   {
+      int sum;
+      sum = (int)( Math.random() * 6 ) + 1;
+      sum += (int)( Math.random() * 6 ) + 1;
+      return sum;
+   }
+   
+}

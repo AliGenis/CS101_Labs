@@ -1,0 +1,76 @@
+/**
+ * Class to create and manipulate house
+ * 
+ * @author Ali Genis
+ * @date 16.05.2020
+ */
+public class House
+{
+   //Variables
+   private String ownerName;
+   private String address;
+   private int residents;
+   private double serviceChargePerResident;
+   
+   // Constructor
+   public House( String owner , String address , int people , double charge )
+   {
+      this.ownerName = owner;
+      this.address = address;
+      this.residents = people;
+      this.serviceChargePerResident = charge;
+   }
+   
+   // Getters
+   public String getOwnerName()
+   {
+      return ownerName;
+   }
+   public String getAddress()
+   {
+      return address;
+   }
+   public int getResidents()
+   {
+      return residents;
+   }
+   public double getServiceChargePerResident()
+   {
+      return serviceChargePerResident;
+   }
+   // Setters
+   public void setOwnerName( String owner )
+   {
+      this.ownerName = owner;
+   }
+   public void setAddress( String a )
+   {
+      this.address = a;
+   }
+   public void setResidents( int a )
+   {
+      this.residents = a;
+   }
+   public void setServiceChargePerResident( double a )
+   {
+      this.serviceChargePerResident = a;
+   }
+   /**
+    * Method to calculate total service fee
+    * @return total service fee
+    */
+   public double calculateTotalServiceFee()
+   {
+      return residents * serviceChargePerResident;
+   }
+   /**
+    * Method to show house nicely
+    * @return String representation of house
+    */
+   public String toString()
+   {
+      return "Owner: " + ownerName + "\n" + address + "\nResidents: " + residents + " Monthly Fee: " + calculateTotalServiceFee();
+   }
+   
+   
+}

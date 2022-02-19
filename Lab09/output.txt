@@ -1,0 +1,103 @@
+1-Show
+2-Find
+3-Add
+4-Exit
+Choose an option: 3
+Enter a title: You
+Enter an author: Ahmet Yavuz
+The book with title "You" has been added to the library.
+
+1-Show
+2-Find
+3-Add
+4-Exit
+Choose an option: 3
+Enter a title: Western
+Enter an author: Abitter Tasci
+The book with title "Western" has been added to the library.
+
+1-Show
+2-Find
+3-Add
+4-Exit
+Choose an option: 3
+Enter a title: Strong World     
+Enter an author: Zeki Yavru
+The book with title "Strong World" has been added to the library.
+
+1-Show
+2-Find
+3-Add
+4-Exit
+Choose an option: 1
+{Title: Western, Author: Abitter Tasci, Due Date: , Times Loaned: 0}
+{Title: You, Author: Ahmet Yavuz, Due Date: , Times Loaned: 0}
+{Title: Strong World, Author: Zeki Yavru, Due Date: , Times Loaned: 0}
+
+1-Show
+2-Find
+3-Add
+4-Exit
+Choose an option: 3
+Enter a title: Ask ve Mantık
+Enter an author: Zeki Yavru
+The book with title "Ask ve Mantık" has been added to the library.
+
+1-Show
+2-Find
+3-Add
+4-Exit
+Choose an option: 3
+Enter a title: Kesirli Dunya
+Enter an author: Zeki Yavru
+The book with title "Kesirli Dunya" has been added to the library.
+
+1-Show
+2-Find
+3-Add
+4-Exit
+Choose an option: 1
+{Title: Western, Author: Abitter Tasci, Due Date: , Times Loaned: 0}
+{Title: You, Author: Ahmet Yavuz, Due Date: , Times Loaned: 0}
+{Title: Ask ve Mantık, Author: Zeki Yavru, Due Date: , Times Loaned: 0}
+{Title: Kesirli Dunya, Author: Zeki Yavru, Due Date: , Times Loaned: 0}
+{Title: Strong World, Author: Zeki Yavru, Due Date: , Times Loaned: 0}
+
+1-Show
+2-Find
+3-Add
+4-Exit
+Choose an option: 2
+
+1-By Title
+2-By Author
+Choose an option: 1
+Enter a title: Ask ve Mantık
+
+1-Loan
+2-Return
+3-Remove
+4-Return to Menu
+Choose an option:1
+
+1-Show
+2-Find
+3-Add
+4-Exit
+Choose an option: 2
+
+1-By Title
+2-By Author
+Choose an option: 2
+Enter an author: Zeki Yavru
+{Title: Ask ve Mantık, Author: Zeki Yavru, Due Date: 01.05.2020, Times Loaned: 1}
+{Title: Kesirli Dunya, Author: Zeki Yavru, Due Date: , Times Loaned: 0}
+{Title: Strong World, Author: Zeki Yavru, Due Date: , Times Loaned: 0}
+
+1-Show
+2-Find
+3-Add
+4-Exit
+Choose an option: 4
+Yine Bekleriz..
+

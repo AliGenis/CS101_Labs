@@ -1,0 +1,50 @@
+import java.util.Scanner;
+public class LibaryTest
+{
+   public static void main ( String[] args )
+   {
+      Scanner scan = new Scanner(System.in);
+      Libary myLibary = new Libary();
+      
+      // Variables
+      int option;
+      int subOption;
+      String newTitle;
+      String newAuthor;
+      
+      do
+      {
+         System.out.println( "1-Show" );
+         System.out.println( "2-Find" );
+         System.out.println( "3-Add" );
+         System.out.println( "4-Exit" );
+         System.out.print( "Choose an option: " );
+         option = scan.nextInt();
+         
+         // Show
+         if( option == 1 )
+            System.out.println( myLibary );
+         // Find
+         else if ( option == 2 )
+         {
+            
+         }
+         // Add
+         else if ( option == 3 )
+         {
+            System.out.print( "Enter a title: " );
+            newTitle = scan.nextLine();
+            System.out.print( "Enter an author: " );
+            newAuthor = scan.nextLine();
+            if( Libary.add( newTitle , newAuthor ) )
+               System.out.printf( "The book with title \"%s\" has been added to the libary.%n" , newTitle );
+            else
+               System.out.println( "Your libary is full!" );
+         }
+         
+         
+         
+      }while( option != 4 );
+      System.out.println( "Goodbye!" );
+   }
+}

@@ -1,0 +1,239 @@
+public class ScoutRobot
+{
+   // Constants
+   public static final int VELOCITY = 2;
+   public static final int CONSUMED_ENERGY_PER_UNIT = 5;
+   
+   // Veriables
+   private static int scoutCounter = 100;
+   
+   private String robotID;
+   private int xCoordinate;
+   private int yCoordinate;
+   private int direction;
+   private double maxBattery;
+   private double batteryLeft;
+   private boolean condition;
+   
+   // Consturactor
+   public ScoutRobot( int x , int y , double max )
+   {
+      if ( x >= -5 && x <= 5 && y >= -5 && y <= 5 )
+      {
+         setRobotID();
+         scoutCounter++;
+         setXCoordinate( x );
+         setYCoordinate( y );
+         setBattery( max );
+         batteryLeft = maxBattery;
+         setDirection( 0 );
+         setCondition( true );
+      }
+      setCondition( false );
+   }
+   
+   // Accessors
+   public String getRobotID()
+   {
+      return robotID;
+   }
+   public int getXCoordinate()
+   {
+      return xCoordinate;
+   }
+   public int getYCoordinate()
+   {
+      return yCoordinate;
+   }
+   public int getDirection()
+   {
+      return direction;
+   }
+   public double getMaxBattery()
+   {
+      return maxBattery;
+   }
+   public double getBatteryLeft()
+   {
+      return batteryLeft;
+   }
+   public boolean getCondition()
+   {
+      return condition;
+   }
+   
+   // Mutators
+   public void setRobotID()
+   {
+      this.robotID = "Scout-" + scoutCounter;
+   }
+   public void setXCoordinate( int x )
+   {
+      this.xCoordinate = x;
+   }
+   public void setYCoordinate( int y )
+   {
+      this.yCoordinate = y;
+   }
+   public void setBattery( double max )
+   {
+      this.maxBattery = max;
+   }
+   public void setCondition( boolean a )
+   {
+      condition = a;
+   }
+   public void setDirection( int a )
+   {
+      direction = a;
+   }
+   public void fixBattery( double battery )
+   {
+      batteryLeft = battery;
+   }
+   
+   
+   
+   public boolean goToLocation( int x , int y )
+   {
+      double time = 0;
+      int xDirection;
+      int yDirection;
+      int moveOnX = x - xCoordinate;
+      int moveOnY = y - yCoordinate;
+      int moveLength = Math.abs( moveOnX ) + Math.abs( moveOnY );
+      
+      if ( moveOnX < 0 )
+         xDirection = 3;
+      else
+         xDirection = 1;
+      if ( moveOnY < 0 )
+         yDirection = 2;
+      else
+         yDirection = 0;
+      
+      
+      if ( x == 0  && xCoordinate == 0 && y * yCoordinate  < 0 )
+      {
+         moveLength += 2;
+         if ( batteryLeft > CONSUMED_ENERGY_PER_UNIT * moveLength )
+         {
+            System.out.printf( "Starting from (%d, %d)%n" , xCoordinate , yCoordinate );
+            xCoordinate++;
+            System.out.printf( "1 unit on Direction 1 --> (%d, %d)%n" , xCoordinate , yCoordinate );
+            yCoordinate += moveOnY;
+            System.out.printf( "%d unit(s) on Direction %d --> (%d, %d)%n" , Math.abs( moveOnY ) , yDirection , xCoordinate , yCoordinate );
+            setDirection( 3 );
+            xCoordinate--;
+            System.out.printf( "1 unit on Direction 3 --> (%d, %d)%n" , xCoordinate , yCoordinate );
+            batteryLeft -= CONSUMED_ENERGY_PER_UNIT * moveLength;
+            time += ( double ) moveLength / VELOCITY;
+            System.out.printf( "This move took %.1f time unit(s). The battery left is %.1f/%.1f%n" , time , batteryLeft , maxBattery );
+            System.out.println();
+            return true;
+         }
+         return false;
+      }
+      if ( y == 0  && yCoordinate == 0 && x * xCoordinate  < 0 )
+      {
+         moveLength += 2;
+         if ( batteryLeft > CONSUMED_ENERGY_PER_UNIT * moveLength )
+         {
+            System.out.printf( "Starting from (%d, %d)%n" , xCoordinate , yCoordinate );
+            yCoordinate++;
+            System.out.printf( "1 unit on Direction 0 --> (%d, %d)%n" , xCoordinate , yCoordinate );
+            xCoordinate += moveOnX;
+            System.out.printf( "%d unit(s) on Direction %d --> (%d, %d)%n" , Math.abs( moveOnX ) , xDirection , xCoordinate , yCoordinate );
+            setDirection( 2 );
+            yCoordinate--;
+            System.out.printf( "1 unit on Direction 2 --> (%d, %d)%n" , xCoordinate , yCoordinate );
+            batteryLeft -= CONSUMED_ENERGY_PER_UNIT * moveLength;
+            time += ( double ) moveLength / VELOCITY;
+            System.out.printf( "This move took %.1f time unit(s). The battery left is %.1f/%.1f%n" , time , batteryLeft , maxBattery );
+            System.out.println();
+            return true;
+         }
+         return false;
+      }
+      if ( xCoordinate == 0 || y ==  0 )
+      {
+         if ( batteryLeft > CONSUMED_ENERGY_PER_UNIT * moveLength )
+         {
+            System.out.printf( "Starting from (%d, %d)%n" , xCoordinate , yCoordinate );
+            if ( moveOnX != 0 )
+            {
+               xCoordinate += moveOnX;
+               setDirection ( xDirection );
+               System.out.printf( "%d unit(s) on Direction %d --> (%d, %d)%n" , Math.abs( moveOnX ) , xDirection , xCoordinate , yCoordinate );
+            }
+            if ( moveOnY != 0 )
+            {
+               yCoordinate += moveOnY;
+               setDirection ( yDirection );
+               System.out.printf( "%d unit(s) on Direction %d --> (%d, %d)%n" , Math.abs( moveOnY ) , yDirection , xCoordinate , yCoordinate );
+            }
+            batteryLeft -= CONSUMED_ENERGY_PER_UNIT * moveLength;
+            time += ( double ) moveLength / VELOCITY;
+            System.out.printf( "This move took %.1f time unit(s). The battery left is %.1f/%.1f%n" , time , batteryLeft , maxBattery );
+            System.out.println();
+            return true;
+         }
+         return false;
+      }
+      else
+      {
+         if ( batteryLeft > CONSUMED_ENERGY_PER_UNIT * moveLength )
+         {
+            System.out.printf( "Starting from (%d, %d)%n" , xCoordinate , yCoordinate );
+            if ( moveOnY != 0 )
+            {
+               yCoordinate += moveOnY;
+               setDirection ( yDirection );
+               System.out.printf( "%d unit(s) on Direction %d --> (%d, %d)%n" , Math.abs( moveOnY ) , yDirection , xCoordinate , yCoordinate );
+            }
+            if ( moveOnX != 0 )
+            {
+               xCoordinate += moveOnX;
+               setDirection ( xDirection );
+               System.out.printf( "%d unit(s) on Direction %d --> (%d, %d)%n" , Math.abs( moveOnX ) , xDirection , xCoordinate , yCoordinate );
+            }
+            batteryLeft -= CONSUMED_ENERGY_PER_UNIT * moveLength;
+            time += ( double ) moveLength / VELOCITY;
+            System.out.printf( "This move took %.1f time unit(s). The battery left is %.1f/%.1f%n" , time , batteryLeft , maxBattery );
+            System.out.println();
+            return true;
+         }
+         return false;
+      }
+   }
+   
+   public void callMechanic( Mechanic m )
+   {
+      m.teleportation( xCoordinate , yCoordinate );
+      System.out.println( "A mechanic has been summoned." );
+      m.fixRobot( this );
+      System.out.println( this );
+      System.out.println();
+   }
+   
+   public String toString()
+   {
+      return "ScoutRobot{robotID='" + robotID + "', xCoordinate=" + xCoordinate + ", yCoordinate=" + yCoordinate +
+         ", direction=" + direction + ", batteryLeft=" + batteryLeft + "}";
+   }
+   public int compareRobots( ScoutRobot r )
+   {
+      double rToBase;
+      double thisToBase;
+      
+      rToBase = Math.sqrt( Math.pow( r.getXCoordinate() , 2 ) + Math.pow( r.getYCoordinate() , 2 ) );
+      thisToBase = Math.sqrt ( Math.pow ( getXCoordinate() , 2 ) + Math.pow( getYCoordinate() , 2 ) );
+      
+      if( rToBase < thisToBase )
+         return 1;
+      if( thisToBase > rToBase )
+         return -1;
+      return 0;
+   }
+   
+}

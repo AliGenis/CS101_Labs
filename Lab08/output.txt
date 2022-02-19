@@ -1,0 +1,95 @@
+1-Show
+2-Find
+3-Add
+4-Exit
+Choose an option: 3
+Enter a title: The Brain
+Enter an author: David Eagleman
+The book with title "The Brain" has been added to the library.
+
+1-Show
+2-Find
+3-Add
+4-Exit
+Choose an option: 2
+Enter a title: The Brain
+
+1-Loan
+2-Return
+3-Remove
+4-Return to Menu
+Choose an option:1
+
+1-Show
+2-Find
+3-Add
+4-Exit
+Choose an option: 1
+{Title: The Brain, Author: David Eagleman, Due Date: 01.05.2020, Times Loaned: 1}
+
+1-Show
+2-Find
+3-Add
+4-Exit
+Choose an option: 3
+Enter a title: Incognito
+Enter an author: David Eagleman
+The book with title "Incognito" has been added to the library.
+
+1-Show
+2-Find
+3-Add
+4-Exit
+Choose an option: 1
+{Title: The Brain, Author: David Eagleman, Due Date: 01.05.2020, Times Loaned: 1}
+{Title: Incognito, Author: David Eagleman, Due Date: , Times Loaned: 0}
+
+1-Show
+2-Find
+3-Add
+4-Exit
+Choose an option: 2
+Enter a title: The Brain
+
+1-Loan
+2-Return
+3-Remove
+4-Return to Menu
+Choose an option:2
+The book with title "The Brain" has been returned to the library.
+
+1-Show
+2-Find
+3-Add
+4-Exit
+Choose an option: 1
+{Title: The Brain, Author: David Eagleman, Due Date: , Times Loaned: 1}
+{Title: Incognito, Author: David Eagleman, Due Date: , Times Loaned: 0}
+
+1-Show
+2-Find
+3-Add
+4-Exit
+Choose an option: 2
+Enter a title: The Brain
+
+1-Loan
+2-Return
+3-Remove
+4-Return to Menu
+Choose an option:3
+The book with title "The Brain" has been removed from the library.
+
+1-Show
+2-Find
+3-Add
+4-Exit
+Choose an option: 1
+{Title: Incognito, Author: David Eagleman, Due Date: , Times Loaned: 0}
+
+1-Show
+2-Find
+3-Add
+4-Exit
+Choose an option: 4
+Yine Bekleriz..

@@ -1,0 +1,50 @@
+import java.util.Scanner;
+/**
+ * Program to calculate a polynomial expression with different variables.
+ * 
+ * @author Ali Genis
+ * @date 16.05.2020
+ */
+public class Lab10a
+{
+   public static void main ( String[] args )
+   {
+      Scanner scan = new Scanner(System.in);
+      
+      // Variables
+      int x;
+      int sum;
+      int[] listCoefficient;
+      
+      // Program code
+      System.out.print( "Please enter the value of N: " );
+      listCoefficient = new int[scan.nextInt() + 1];
+      
+      for( int i = listCoefficient.length - 1; i >= 0; i-- )
+      {
+         System.out.printf( "Please enter the coefficent a%d: " , i );
+         listCoefficient[i] = scan.nextInt();
+      }
+      
+      System.out.print( "\nPlease enter the X value: " );
+      x = scan.nextInt();
+      while( x != 0 )
+      {
+         sum = 0;
+         System.out.println();
+         System.out.println( "for X = " + x );
+         for( int i = listCoefficient.length - 1; i >= 0; i-- )
+         {
+            if( i != listCoefficient.length - 1 )
+               System.out.print( "+ " );
+            System.out.printf( "%d(%d ^ %d) " , listCoefficient[i] , x , i );
+            sum += listCoefficient[i] * Math.pow( x , i );
+         }
+         System.out.println( "= " + sum );
+         System.out.println();
+         System.out.print( "Please enter the X value: " );
+         x = scan.nextInt();
+      }
+      System.out.println( "Goodbye!" );
+   }
+}

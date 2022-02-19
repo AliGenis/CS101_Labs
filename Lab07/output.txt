@@ -1,0 +1,64 @@
+ScoutRobot{robotID='Scout-100', xCoordinate=0, yCoordinate=0, direction=0, batteryLeft=100.0}
+
+ScoutRobot{robotID='Scout-101', xCoordinate=0, yCoordinate=0, direction=0, batteryLeft=100.0}
+
+Mechanic{mechanicID='Mechanic-10', xCoordinate=0, yCoordinate=0}
+
+----------------- Scout-100 -----------------
+Starting from (0, 0)
+2 unit(s) on Direction 1 --> (2, 0)
+3 unit(s) on Direction 0 --> (2, 3)
+This move took 2.5 time unit(s). The battery left is 75.0/100.0
+
+Starting from (2, 3)
+4 unit(s) on Direction 3 --> (-2, 3)
+3 unit(s) on Direction 2 --> (-2, 0)
+This move took 3.5 time unit(s). The battery left is 40.0/100.0
+
+Starting from (-2, 0)
+1 unit(s) on Direction 0 --> (-2, 1)
+5 unit(s) on Direction 1 --> (3, 1)
+1 unit(s) on Direction 2 --> (3, 0)
+This move took 3.5 time unit(s). The battery left is 5.0/100.0
+
+There is no enough battery.
+
+A mechanic has been summoned.
+The Robot has been fixed. I have returned to the base.
+ScoutRobot{robotID='Scout-100', xCoordinate=3, yCoordinate=0, direction=2, batteryLeft=100.0}
+
+Starting from (3, 0)
+5 unit(s) on Direction 0 --> (3, 5)
+3 unit(s) on Direction 3 --> (0, 5)
+This move took 4.0 time unit(s). The battery left is 60.0/100.0
+
+----------------- Scout-101 -----------------
+Starting from (0, 0)
+3 unit(s) on Direction 1 --> (3, 0)
+4 unit(s) on Direction 2 --> (3, -4)
+This move took 3.5 time unit(s). The battery left is 65.0/100.0
+
+Starting from (3, -4)
+7 unit(s) on Direction 0 --> (3, 3)
+3 unit(s) on Direction 3 --> (0, 3)
+This move took 5.0 time unit(s). The battery left is 15.0/100.0
+
+There is no enough battery.
+
+A mechanic has been summoned.
+The Robot has been fixed. I have returned to the base.
+ScoutRobot{robotID='Scout-101', xCoordinate=0, yCoordinate=3, direction=3, batteryLeft=100.0}
+
+Starting from (0, 3)
+1 unit(s) on Direction 1 --> (1, 3)
+7 unit(s) on Direction 2 --> (1, -4)
+1 unit(s) on Direction 3 --> (0, -4)
+This move took 4.5 time unit(s). The battery left is 55.0/100.0
+
+Starting from (0, -4)
+1 unit(s) on Direction 1 --> (1, -4)
+6 unit(s) on Direction 0 --> (1, 2)
+This move took 3.5 time unit(s). The battery left is 20.0/100.0
+
+-------------------------------------------
+Scout-101 is closer to the base than Scout-100

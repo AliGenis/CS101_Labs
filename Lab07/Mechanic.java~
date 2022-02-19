@@ -1,0 +1,69 @@
+public class Mechanic
+{
+   // Variables
+   private static int mechanicCounter = 10;
+   private String mechanicID;
+   private int xCoordinate;
+   private int yCoordinate;
+   
+   // Consturactor
+   public Mechanic( int x , int y )
+   {
+      setMechanicID();
+      mechanicCounter++;
+      setXCoordinate( x );
+      setYCoordinate( y );
+   }
+   
+   // Accessors
+   public String getMechanicID()
+   {
+      return mechanicID;
+   }
+   public int getXCoordinate()
+   {
+      return xCoordinate;
+   }
+   public int getYCoordinate()
+   {
+      return yCoordinate;
+   }
+   
+   // Mutators
+   public void setMechanicID()
+   {
+      this.mechanicID = "Mechanic-" + mechanicCounter;
+   }
+   public void setXCoordinate( int x )
+   {
+      this.xCoordinate = x;
+   }
+   public void setYCoordinate( int y )
+   {
+      this.yCoordinate = y;
+   }
+   
+   public boolean teleportation( int x , int y )
+   {
+      if( x >= -5 && x <= 5 && y >= -5 && y <= 5 )
+      {
+         setXCoordinate( x );
+         setYCoordinate( y );
+         return true;
+      }
+      return false;
+   }
+   public void fixRobot( ScoutRobot robot )
+   {
+      robot.fixBattery( robot.getMaxBattery() );
+      System.out.println( "The robot has been fixed." );
+      this.teleportation( 0 , 0 );
+      System.out.println( "I have returned to the base.\n" );
+   }
+   public String toString()
+   {
+      return "Mechanic{mechanicID='" + mechanicID + "', xCoordinate=" + xCoordinate + ", yCoordinate=" + yCoordinate + "}";
+   }
+   
+   
+}
