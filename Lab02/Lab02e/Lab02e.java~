@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+/*
+ * A simple program to string operations.
+ * 
+ * This program prints information about strings.
+ * 
+ * @author Ali Genis
+ * @date   24.02.2020
+ */
+
+public class Lab02e
+{
+   public static void main ( String args[] )
+   {
+      Scanner scan = new Scanner(System.in);
+      
+      //Variables
+      String first;
+      String firstSub;
+      String second;
+      String secondSub;
+      String finalString;
+      int integer;
+      int space;
+      int length;
+      
+      System.out.print( "Enter the first string: ");
+      first = scan.nextLine();
+      length = first.length();
+      firstSub = first.substring( 1 , length - 1 );
+      
+      System.out.print( "\nEnter the second string: " );
+      second = scan.nextLine();
+      
+      System.out.print( "\nEnter an integer: " );
+      integer = scan.nextInt();
+      secondSub = second.substring( 0 , integer ) + second.substring( integer + 1 , second.length() );
+      
+      finalString = firstSub + " " + secondSub;
+      System.out.println( "\nFinal string: " + finalString );
+      System.out.println( "The length of the final string: " + finalString.length() );
+      
+   }
+}
